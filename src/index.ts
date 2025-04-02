@@ -33,7 +33,7 @@ app.post('/signup', async (req, res) => {
         const pincodeResponse = pincodeSchema.safeParse(pincode);
 
         // If any of the data is invalid, we will return a 401 status code with a message saying "Invalid Entry".
-        if(!usernameResponse || !emailResponse.success || !passwordResponse.success || !cityResponse.success || !countryResponse.success || !streetResponse || !pincodeResponse)
+        if( !usernameResponse.success || !emailResponse.success || !passwordResponse.success || !cityResponse.success || !countryResponse.success || !streetResponse.success || !pincodeResponse.success )
         {
             res.status(401).json({
                 message : "Invalid Entry"
